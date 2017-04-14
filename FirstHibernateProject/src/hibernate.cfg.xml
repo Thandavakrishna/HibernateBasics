@@ -1,0 +1,41 @@
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+    	<!-- SQL Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">tiger</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernatedb1</property>
+        <!--  Drop and re-create database schema on startup -->
+        <!-- <property name="hibernate.hbm2ddl.auto">create-drop</property> -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="hibernate.connection.autocommit">true</property>
+        <!-- <mapping class="org.hibernate.osgi.test.client.DataPoint"/>
+        <mapping class="org.hibernate.osgi.test.client.AuditedDataPoint"/> -->
+        
+        <!-- Include all model classes for which schema needs to be generated -->
+        <!-- Names the annotated entity classes -->
+        <!-- <mapping class="org.thandav.hibernate.dto.UserDetails" resource="org.thandav.hibernate.dto.UserDetails"/> -->
+        <!-- <mapping class="org.thandav.hibernate.dto.UserDetailsCollection" resource="org.thandav.hibernate.dto.UserDetailsCollection"/> -->
+        <!-- <mapping class="org.thandav.hibernate.dto.UserDetailsEntities" resource="org.thandav.hibernate.dto.UserDetailsEntities"/> -->
+<!--         <mapping class="org.thandav.hibernate.dto.Vehicle" resource="org.thandav.hibernate.dto.Vehicle"/>
+        <mapping class="org.thandav.hibernate.dto.TwoWheeler" resource="org.thandav.hibernate.dto.TwoWheeler"/>
+        <mapping class="org.thandav.hibernate.dto.FourWheeler" resource="org.thandav.hibernate.dto.FourWheeler"/> -->
+        <mapping class="org.thandav.hibernate.dto.UserBasic"/>
+        
+        <!-- <property name="connection.pool_size">1</property> -->  
+    </session-factory>
+</hibernate-configuration>
